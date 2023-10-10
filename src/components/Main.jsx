@@ -5,13 +5,13 @@ import ListaRepos from "./ListaRepos";
 const Main = () => {
   return (
     <View style={styles.container}>
-      <StatusBar backgroundColor="#082051" barStyle="light-content" />
+      <StatusBar backgroundColor="black" barStyle="light-content" />
       <View style={styles.header}>
         <Text style={styles.headerText}>Aprende Kanjis</Text>
       </View>
       <View style={styles.listContainer}>
         {
-          <ListaRepos></ListaRepos>
+            <ListaRepos></ListaRepos>
         }
       </View>
     </View>
@@ -32,10 +32,10 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontSize: 20,
   },
-  listContainer:{
+  listContainer: {
     flex: 1,
-    justifyContent: "center", 
-    alignItems: "center", 
+    justifyContent: "center",
+    alignItems: "center",
   }
 });
 
