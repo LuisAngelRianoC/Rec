@@ -3,6 +3,7 @@ import { View, FlatList, Image, StyleSheet, TouchableNativeFeedback } from 'reac
 import { ALERT_TYPE, AlertNotificationRoot, Dialog } from 'react-native-alert-notification';
 
 const numColumns = 3;
+const getImageById = (id) => imagePaths[id] || null;
 
 const imagePaths = {
     1: require('../../assets/img/ka.jpg'),
@@ -36,10 +37,15 @@ const imagePaths = {
     30: require('../../assets/img/kazan.jpg'),
 };
 
-const getImageById = (id) => imagePaths[id] || null;
-
 const ListaRepos = () => {
     const [repos, setRepos] = useState([]); 
+
+    useEffect(() => {
+        fetch('https://6524e533ea560a22a4ea3977.mockapi.io/Kanjis')
+            .then(response => response.json())
+            .then(data => setRepos(data))
+            .catch(error => console.error('Error al obtener datos de la API:', error));
+    }, []);
 
     const showKanjiDetails = (repo) => {
         Dialog.show({
@@ -50,13 +56,6 @@ const ListaRepos = () => {
         });
 
     };
-
-    useEffect(() => {
-        fetch('https://6524e533ea560a22a4ea3977.mockapi.io/Kanjis')
-            .then(response => response.json())
-            .then(data => setRepos(data))
-            .catch(error => console.error('Error al obtener datos de la API:', error));
-    }, []);
 
     return (
         <AlertNotificationRoot>

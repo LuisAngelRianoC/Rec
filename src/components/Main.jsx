@@ -7,7 +7,7 @@ const Main = () => {
     <View style={styles.container}>
       <StatusBar backgroundColor="black" barStyle="light-content" />
       <View style={styles.header}>
-        <Text style={styles.headerText}>Aprende Kanjis</Text>
+        <Text style={styles.headerText}>Kanji's Master</Text>
       </View>
       <View style={styles.listContainer}>
         {
